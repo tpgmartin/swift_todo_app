@@ -19,7 +19,18 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        self.view.endEditing(true);
+    }
+    
+    // UITextField Delegate
+    func textFieldShouldReturn(textField: UITextField!) -> Bool{
+        
+        textField.resignFirstResponder();
+        
+        return true
+    }
 
 }
 

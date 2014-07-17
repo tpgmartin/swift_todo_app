@@ -30,7 +30,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
             
-            cell.text = taskMgr.tasks[indexPath.row].name
+            cell.textLabel.text = taskMgr.tasks[indexPath.row].name
             cell.detailTextLabel.text = taskMgr.tasks[indexPath.row].desc
             
             return cell
