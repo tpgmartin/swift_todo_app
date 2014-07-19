@@ -9,6 +9,10 @@
 import UIKit
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet var txtTask: UITextField!
+    @IBOutlet var txtDesc: UITextField!
+    
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +24,24 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //Events
+    @IBAction func btnAddTask_Click(sender: UIButton){
+        taskMgr.addTask(txtTask.text, desc: txtDesc.text);
+        self.view.endEditing(true)
+        txtTask.text = ""
+        txtDesc.text = ""
+        self.tabBarController.selectedIndex = 0;
+    }
+    
+    // iOs Touch Functions
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
-        self.view.endEditing(true);
+        self.view.endEditing(true)
     }
     
     // UITextField Delegate
     func textFieldShouldReturn(textField: UITextField!) -> Bool{
         
+        // close keyboard on click away
         textField.resignFirstResponder();
         
         return true
